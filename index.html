@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Doomslayers | Preventive Cybersecurity & Zero Trust</title>
+    <style>
+        /* --- VARIABLES DE DISEÑO --- */
+        :root {
+            --bg-color: #050914;
+            --bg-gradient: radial-gradient(circle at 50% 0%, #112244 0%, #050914 70%);
+            --card-bg: rgba(16, 30, 54, 0.6);
+            --card-border: rgba(64, 150, 255, 0.15);
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --accent-cyan: #00d2ff;
+            --accent-blue: #3a7bd5;
+            --glow-color: rgba(0, 210, 255, 0.4);
+            --font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* --- RESET Y ESTILOS BASE --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: var(--bg-gradient);
+            background-attachment: fixed;
+            color: var(--text-main);
+            font-family: var(--font-family);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- HEADER Y NAVEGACIÓN --- */
+        header {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80vw;
+            height: 80vw;
+            max-width: 800px;
+            max-height: 800px;
+            background: radial-gradient(circle, var(--glow-color) 0%, transparent 60%);
+            opacity: 0.3;
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        .team-badge {
+            display: inline-block;
+            background-color: rgba(58, 123, 213, 0.2);
+            color: var(--accent-cyan);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--card-border);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #ffffff, #88c0ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .lang-btn {
+            background: transparent;
+            color: var(--accent-cyan);
+            border: 1px solid var(--accent-cyan);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .lang-btn:hover {
+            background: var(--accent-cyan);
+            color: var(--bg-color);
+            box-shadow: 0 0 15px var(--glow-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            padding-top: 1rem;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--accent-cyan);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent-cyan);
+            transition: width 0.3s ease;
+            box-shadow: 0 0 8px var(--accent-cyan);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* --- MAIN CONTENT & CARDS --- */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        section {
+            scroll-margin-top: 2rem;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--accent-cyan);
+            padding-left: 1rem;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        article, .ad-banner {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        article:hover, .ad-banner:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.1);
+            border-color: rgba(0, 210, 255, 0.4);
+        }
+
+        article h3, .ad-banner h3 {
+            color: var(--accent-cyan);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        article p, .ad-banner p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        article small {
+            display: block;
+            color: #64748b;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        /* --- AJUSTE PERFECTO DE LAS IMÁGENES --- */
+        article img {
+            width: 100%;
+            max-height: 350px;
+            object-fit: contain; /* Ajusta la imagen completa sin recortarla */
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            background-color: #070d1d; /* Fondo elegante para rellenar espacios si la imagen es cuadrada/vertical */
+        }
+
+        /* --- SECCIÓN ADS --- */
+        .ad-banner {
+            background: linear-gradient(135deg, rgba(16, 30, 54, 0.9) 0%, rgba(10, 20, 40, 0.9) 100%);
+            border: 1px solid var(--accent-blue);
+        }
+
+        .ad-banner ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .ad-banner li {
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .ad-banner li::before {
+            content: '✓';
+            color: var(--accent-cyan);
+            font-weight: bold;
+        }
+
+        /* --- TRIVIA Y LISTAS --- */
+        #trivia ul, #references ul {
+            list-style: none;
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        #trivia li, #references li {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--card-border);
+            color: var(--text-muted);
+            transition: border-color 0.3s ease;
+        }
+
+        #trivia li:hover, #references li:hover {
+            border-color: var(--accent-cyan);
+        }
+
+        #trivia strong {
+            color: var(--accent-cyan);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        #references a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        #references a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- PODCAST --- */
+        #podcast {
+            text-align: center;
+            background: var(--card-bg);
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--card-border);
+        }
+
+        #podcast p {
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            text-align: center;
+        }
+
+        audio {
+            width: 100%;
+            max-width: 500px;
+            margin: 1rem 0;
+            border-radius: 30px;
+            outline: none;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            nav ul {
+                gap: 1rem;
+            }
+            main {
+                padding: 1rem;
+                gap: 2rem;
+            }
+            article, .ad-banner {
+                padding: 1.5rem;
+            }
+            article img {
+                max-height: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="team-badge" data-en="Team Doomslayers — Academic Project" data-es="Team Doomslayers — Proyecto Académico">Team Doomslayers — Academic Project</div>
+        
+        <h1 data-en="Preventive Cybersecurity & Zero Trust Architectures" data-es="Ciberseguridad Preventiva y Arquitecturas Zero Trust">Preventive Cybersecurity & Zero Trust Architectures</h1>
+        
+        <p data-en="Transitioning from implicit network trust to continuous identity verification, micro-segmentation, and least-privilege access control." 
+           data-es="Transición de la confianza de red implícita a la verificación continua de identidad, microsegmentación y control de acceso de privilegios mínimos.">
+            Transitioning from implicit network trust to continuous identity verification, micro-segmentation, and least-privilege access control.
+        </p>
+
+        <!-- Botón para cambiar de idioma -->
+        <button id="lang-toggle" class="lang-btn">ES / EN</button>
+
+        <nav>
+            <ul>
+                <li><a href="#opinion" data-en="Opinion Articles" data-es="Artículos de Opinión">Opinion Articles</a></li>
+                <li><a href="#news" data-en="Featured News" data-es="Noticias Destacadas">Featured News</a></li>
+                <li><a href="#ads" data-en="Tech Ads" data-es="Publicidad Tecnológica">Tech Ads</a></li>
+                <li><a href="#trivia" data-en="Fun Facts" data-es="Datos Curiosos">Fun Facts</a></li>
+                <li><a href="#podcast" data-en="Podcast" data-es="Podcast">Podcast</a></li>
+                <li><a href="#references" data-en="References" data-es="Referencias Bibliográficas">References</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 1. Opinion Articles Section -->
+        <section id="opinion">
+            <h2 data-en="Opinion Articles" data-es="Artículos de Opinión">Opinion Articles</h2>
+            
+            <article>
+                <h3 data-en="The Obsolescence of Perimeter Defense in Distributed Cloud Infrastructures" 
+                    data-es="La Obsolescencia de la Defensa Perimetral en Infraestructuras Cloud Distribuidas">
+                    The Obsolescence of Perimeter Defense in Distributed Cloud Infrastructures
+                </h3>
+                <p data-en="Traditional castle-and-moat security models assume that everything inside the corporate network can be trusted implicitly. However, with the proliferation of remote workforces, multi-cloud deployments, and IoT integration, this perimeter-based approach leaves organizations dangerously exposed to lateral movement threats. Implementing a Zero Trust Architecture (ZTA) invalidates implicit trust, requiring continuous multi-factor authentication (MFA), strict device health attestation, and dynamic behavioral analytics before granting access to sensitive data repositories."
+                   data-es="Los modelos tradicionales de seguridad de castillo y foso asumen que todo dentro de la red corporativa es confiable de manera implícita. Sin embargo, con la proliferación del trabajo remoto, despliegues multi-nube e integración de IoT, este enfoque deja a las organizaciones expuestas a amenazas de movimiento lateral. Implementar una Arquitectura Zero Trust (ZTA) invalida la confianza implícita, exigiendo autenticación multifactor continua (MFA), atestación estricta de la salud del dispositivo y analítica de comportamiento dinámica antes de otorgar acceso a repositorios de datos sensibles.">
+                    Traditional castle-and-moat security models assume that everything inside the corporate network can be trusted implicitly. However, with the proliferation of remote workforces, multi-cloud deployments, and IoT integration, this perimeter-based approach leaves organizations dangerously exposed to lateral movement threats. Implementing a Zero Trust Architecture (ZTA) invalidates implicit trust, requiring continuous multi-factor authentication (MFA), strict device health attestation, and dynamic behavioral analytics before granting access to sensitive data repositories.
+                </p>
+                <small data-en="By Team Doomslayers | Analytical Essay | Read time: 5 min" data-es="Por Team Doomslayers | Ensayo Analítico | Tiempo de lectura: 5 min">By Team Doomslayers | Analytical Essay | Read time: 5 min</small>
+            </article>
+
+            <article>
+                <h3 data-en="Engineering Challenges in Software-Defined Micro-Segmentation" 
+                    data-es="Desafíos de Ingeniería en la Microsegmentación Definida por Software">
+                    Engineering Challenges in Software-Defined Micro-Segmentation
+                </h3>
+                <p data-en="Micro-segmentation is a foundational pillar of Zero Trust, breaking down physical network perimeters into granular, isolated zones down to the workload level. While this effectively neutralizes threat propagation during a breach, network engineers face severe hurdles regarding latency overhead, policy maintenance complexity, and application dependency mapping. Overcoming these bottlenecks demands automated orchestration pipelines and intent-based networking policies that scale dynamically alongside cloud-native microservices."
+                   data-es="La microsegmentación es un pilar fundamental de Zero Trust, desglosando los perímetros de red físicos en zonas granulares e aisladas hasta el nivel de carga de trabajo. Si bien esto neutraliza la propagación de amenazas durante una brecha, los ingenieros de red enfrentan obstáculos severos con respecto a la sobrecarga de latencia, complejidad en el mantenimiento de políticas y mapeo de dependencias de aplicaciones. Superar estos cuellos de botella exige pipelines de orquestación automatizada y políticas de red basadas en intenciones que escalen dinámicamente junto con los microservicios nativos de la nube.">
+                    Micro-segmentation is a foundational pillar of Zero Trust, breaking down physical network perimeters into granular, isolated zones down to the workload level. While this effectively neutralizes threat propagation during a breach, network engineers face severe hurdles regarding latency overhead, policy maintenance complexity, and application dependency mapping. Overcoming these bottlenecks demands automated orchestration pipelines and intent-based networking policies that scale dynamically alongside cloud-native microservices.
+                </p>
+                <small data-en="By Team Doomslayers | Technical Review | Read time: 4 min" data-es="Por Team Doomslayers | Revisión Técnica | Tiempo de lectura: 4 min">By Team Doomslayers | Technical Review | Read time: 4 min</small>
+            </article>
+        </section>
+
+        <!-- 2. Featured News Section -->
+        <section id="news">
+            <h2 data-en="Featured News" data-es="Noticias Destacadas">Featured News</h2>
+            
+            <!-- Noticia 1 con ajuste perfecto de la Imagen 1 -->
+            <article>
+                <img src="images.png" alt="Zero Trust strategy deployment roadmap">
+                <h3 data-en="Global Cybersecurity Report: Enterprise Adoption of Zero Trust Surges by 55%" 
+                    data-es="Informe Global de Ciberseguridad: La Adopción Empresarial de Zero Trust Aumenta un 55%">
+                    Global Cybersecurity Report: Enterprise Adoption of Zero Trust Surges by 55%
+                </h3>
+                <p data-en="Recent market analyses indicate that over half of Fortune 500 enterprises have mandated Zero Trust frameworks across their core infrastructure. Driven by rising ransomware sophistication and regulatory compliance demands, CISOs are prioritizing continuous authorization engines and end-to-end encryption protocols."
+                   data-es="Recientes análisis de mercado indican que más de la mitad de las empresas del Fortune 500 han exigido frameworks Zero Trust en su infraestructura central. Impulsados por la creciente sofisticación del ransomware y exigencias de cumplimiento normativo, los CISO están priorizando motores de autorización continua y protocolos de cifrado de extremo a extremo.">
+                    Recent market analyses indicate that over half of Fortune 500 enterprises have mandated Zero Trust frameworks across their core infrastructure. Driven by rising ransomware sophistication and regulatory compliance demands, CISOs are prioritizing continuous authorization engines and end-to-end encryption protocols.
+                </p>
+                <small data-en="Published: October 2026 | Source: Global Tech Security Journal" data-es="Publicado: Octubre 2026 | Fuente: Global Tech Security Journal">Published: October 2026 | Source: Global Tech Security Journal</small>
+            </article>
+
+            <!-- Noticia 2 con ajuste perfecto de la Imagen 2 -->
+            <article>
+                <img src="images1.jfif" alt="AI integration in cybersecurity pipelines">
+                <h3 data-en="Integrating Artificial Intelligence into Automated Threat Response Pipelines" 
+                    data-es="Integración de Inteligencia Artificial en Pipelines Automatizados de Respuesta a Amenazas">
+                    Integrating Artificial Intelligence into Automated Threat Response Pipelines
+                </h3>
+                <p data-en="Leading cloud security vendors have rolled out AI-driven SIEM (Security Information and Event Management) platforms capable of detecting anomalous user behaviors in milliseconds. These systems leverage machine learning models to instantly revoke session tokens and isolate compromised containers before lateral migration occurs."
+                   data-es="Principales proveedores de seguridad en la nube han lanzado plataformas SIEM impulsadas por IA (Gestión de Eventos e Información de Seguridad) capaces de detectar comportamientos de usuario anómalos en milisegundos. Estos sistemas aprovechan modelos de aprendizaje automático para revocar instantáneamente tokens de sesión y aislar contenedores comprometidos antes de que ocurra la migración lateral.">
+                    Leading cloud security vendors have rolled out AI-driven SIEM (Security Information and Event Management) platforms capable of detecting anomalous user behaviors in milliseconds. These systems leverage machine learning models to instantly revoke session tokens and isolate compromised containers before lateral migration occurs.
+                </p>
+                <small data-en="Published: October 2026 | Source: CyberPulse Magazine" data-es="Publicado: Octubre 2026 | Fuente: CyberPulse Magazine">Published: October 2026 | Source: CyberPulse Magazine</small>
+            </article>
+        </section>
+
+        <!-- 3. Tech Ads / Advertisements Section -->
+        <section id="ads">
+            <h2 data-en="Tech Ads" data-es="Publicidad Tecnológica">Tech Ads</h2>
+            <aside class="ad-banner">
+                <h3 data-en="ZeroGuard Enterprise Suite v4.2" data-es="ZeroGuard Enterprise Suite v4.2">ZeroGuard Enterprise Suite v4.2</h3>
+                <p><em data-en="Never Trust, Always Verify." data-es="Nunca confíes, verifica siempre.">Never Trust, Always Verify.</em> <span data-en="Streamline your hybrid cloud security with automated identity verification, continuous risk scoring, and real-time policy enforcement across Kubernetes clusters and legacy servers." data-es="Optimiza la seguridad de tu nube híbrida con verificación de identidad automatizada, calificación de riesgo continua y aplicación de políticas en tiempo real en clústeres de Kubernetes y servidores heredados.">Streamline your hybrid cloud security with automated identity verification, continuous risk scoring, and real-time policy enforcement across Kubernetes clusters and legacy servers.</span></p>
+                <ul>
+                    <li data-en="Context-Aware Access Control" data-es="Control de acceso consciente del contexto">Context-Aware Access Control</li>
+                    <li data-en="Automated Micro-Segmentation" data-es="Microsegmentación automatizada">Automated Micro-Segmentation</li>
+                    <li data-en="Quantum-Resistant Encryption Ready" data-es="Listo para cifrado resistente a la computación cuántica">Quantum-Resistant Encryption Ready</li>
+                </ul>
+            </aside>
+        </section>
+
+        <!-- 4. Fun Facts / Tech Trivia Section -->
+        <section id="trivia">
+            <h2 data-en="Fun Facts & Tech Trivia" data-es="Datos Curiosos y Trivia Tecnológica">Fun Facts & Tech Trivia</h2>
+            <ul>
+                <li>
+                    <strong data-en="82% of Breaches" data-es="82% de las Brechas">82% of Breaches</strong> <span data-en="involve compromised human or machine credentials, reinforcing why identity has officially replaced the physical network as the modern security perimeter." data-es="involucran credenciales humanas o de máquinas comprometidas, reforzando por qué la identidad ha reemplazado oficialmente a la red física como el perímetro de seguridad moderno.">involve compromised human or machine credentials, reinforcing why identity has officially replaced the physical network as the modern security perimeter.</span>
+                </li>
+                <li>
+                    <strong data-en="John Kindervag" data-es="John Kindervag">John Kindervag</strong>, <span data-en="former principal analyst at Forrester Research, first coined the term 'Zero Trust' in 2010 after realizing that traditional network security models were fundamentally flawed." data-es="exanalista principal en Forrester Research, acuñó por primera vez el término 'Zero Trust' en 2010 tras percatarse de que los modelos tradicionales de seguridad de red presentaban fallas fundamentales.">former principal analyst at Forrester Research, first coined the term 'Zero Trust' in 2010 after realizing that traditional network security models were fundamentally flawed.</span>
+                </li>
+                <li>
+                    <strong data-en="Sub-Second Isolation:" data-es="Aislamiento en Subisegundos:">Sub-Second Isolation:</strong> <span data-en="Advanced Zero Trust brokers evaluate context signals (device posture, geo-location, user behavior) and execute policy enforcement decisions in under 50 milliseconds." data-es="Los brokers avanzados de Zero Trust evalúan señales de contexto (postura del dispositivo, geolocalización, comportamiento del usuario) y ejecutan decisiones de cumplimiento de políticas en menos de 50 milisegundos.">Advanced Zero Trust brokers evaluate context signals (device posture, geo-location, user behavior) and execute policy enforcement decisions in under 50 milliseconds.</span>
+                </li>
+                <li>
+                    <strong data-en="The Principle of Least Privilege (PoLP):" data-es="El Principio de Menor Privilegio (PoLP):">The Principle of Least Privilege (PoLP):</strong> <span data-en="A core concept dating back to the 1970s operating system design, which mandates that users and processes only receive the minimum permissions necessary to perform their specific functions." data-es="Un concepto fundamental que se remonta al diseño de sistemas operativos de los años 70, el cual exige que los usuarios y procesos reciban únicamente los permisos mínimos necesarios para ejecutar sus funciones específicas.">A core concept dating back to the 1970s operating system design, which mandates that users and processes only receive the minimum permissions necessary to perform their specific functions.</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- 5. Project Podcast (Behind the Scenes) Section -->
+        <section id="podcast">
+            <h2 data-en="Project Podcast: Behind the Scenes" data-es="Podcast del Proyecto: Detrás de Escena">Project Podcast: Behind the Scenes</h2>
+            <p><strong data-en="Audio explanatory in Spanish:" data-es="Audio explicativo en español:">Audio explanatory in Spanish:</strong> <span data-en="In this episode, Team Doomslayers details the methodological process of bibliographic research, technical translation of cybersecurity concepts, semantic HTML5 layout, and task distribution for web development." data-es="En este episodio, el equipo Team Doomslayers detalla el proceso metodológico de investigación bibliográfica, traducción técnica de conceptos de ciberseguridad, maquetación semántica en HTML5 y la distribución de tareas para el desarrollo web.">In this episode, Team Doomslayers details the methodological process of bibliographic research, technical translation of cybersecurity concepts, semantic HTML5 layout, and task distribution for web development.</span></p>
+            <audio controls>
+                <source src="podcast-doomslayers-bts.mp3" type="audio/mpeg">
+                <span data-en="Your browser does not support the audio element." data-es="Tu navegador no soporta el elemento de audio.">Your browser does not support the audio element.</span>
+            </audio>
+            <p><small data-en="Estimated duration: 3.5 minutes. Topics covered: technical translation challenges, modular structure, and web standards validation." data-es="Duración estimada: 3.5 minutos. Temas cubiertos: retos de traducción técnica, estructura modular y validación de estándares web.">Estimated duration: 3.5 minutes. Topics covered: technical translation challenges, modular structure, and web standards validation.</small></p>
+        </section>
+
+        <!-- 6. Bibliographic References Section -->
+        <section id="references">
+            <h2 data-en="Bibliographic References" data-es="Referencias Bibliográficas">Bibliographic References</h2>
+            <ul>
+                <li>National Institute of Standards and Technology (NIST). (2020). <em data-en="Zero Trust Architecture" data-es="Arquitectura Zero Trust">Zero Trust Architecture</em> (Special Publication 800-207). U.S. Department of Commerce. <a href="https://doi.org/10.6028/NIST.SP.800-207" target="_blank">https://doi.org/10.6028/NIST.SP.800-207</a></li>
+                <li>Kindervag, J. (2010). <em data-en="Build Security Into Your Network's DNA: The Zero Trust Network Architecture" data-es="Construya seguridad en el ADN de su red: La arquitectura de red Zero Trust">Build Security Into Your Network's DNA: The Zero Trust Network Architecture</em>. Forrester Research.</li>
+                <li>Rose, S., Borchers, O., Mitchell, S., & Connelly, S. (2020). <em data-en="Draft NIST Special Publication 800-207: Zero Trust Architecture" data-es="Borrador de la Publicación Especial NIST 800-207: Arquitectura Zero Trust">Draft NIST Special Publication 800-207: Zero Trust Architecture</em>. IEEE Security & Privacy, 18(6), 34-42.</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Team Doomslayers. <span data-en="All rights reserved. Academic Project developed for University English III." data-es="Todos los derechos reservados. Proyecto académico desarrollado para la universidad en Inglés III.">All rights reserved. Academic Project developed for University English III.</span></p>
+    </footer>
+
+    <!-- Script de JavaScript exclusivo para el Cambio de Idioma -->
+    <script>
+        const langToggleBtn = document.getElementById('lang-toggle');
+        let currentLang = 'en'; // El sitio inicia en inglés por requisito de la materia
+
+        langToggleBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'en' ? 'es' : 'en';
+            
+            const elements = document.querySelectorAll('[data-en]');
+            
+            elements.forEach(el => {
+                const translation = currentLang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+                if (translation) {
+                    el.textContent = translation;
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
